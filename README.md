@@ -168,8 +168,6 @@ Projeto acadêmico desenvolvido para demonstrar:
 ---
 
 ## Possíveis Evoluções
-
-- Implementação de triggers automáticas
 - Procedures para consolidação de horas
 - Dashboard analítico com BI
 - Integração com sistema acadêmico externo
