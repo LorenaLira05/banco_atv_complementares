@@ -1,8 +1,7 @@
--- SEED - DADOS DE EXEMPLO--
--- Seed é um script que popula o banco com dados iniciais
--- de exemplo para facilitar o desenvolvimento e os testes.
--- Todos os usuários têm senha padrão: 123456
--- Rodar APÓS o script principal e os triggers.
+-- ⚠️ ANTES DE RODAR ESTE SEED:
+-- Gere o hash da senha padrão rodando no terminal do back-end:
+-- node -e "const bcrypt = require('bcryptjs'); bcrypt.hash('123456', 10).then(console.log);"
+-- Substitua o valor de PASSWORD_HASH_AQUI pelo hash gerado antes de executar.
 
 INSERT INTO courses (name, code, minimum_required_hours, description, modalidade, turno, semestres) VALUES
 (
@@ -77,16 +76,16 @@ WHERE c.code = 'DSG' AND cat.name = 'Curso Livre';
 
 INSERT INTO users (full_name, email, password_hash, phone, cpf) VALUES
 -- Super Admin
-('Super Admin',         'admin@senac.com',       '$2b$10$UVRG/QtCaZeN/H.jXheEzenXMdZmHlUMRU.yxIZMUVqpXoa2tgCJi', NULL,           NULL),
+('Super Admin',         'admin@senac.com',       'PASSWORD_HASH_AQUI', NULL,           NULL),
 -- Coordenadores
-('Ricardo Oliveira',    'ricardo@senac.com',      '$2b$10$UVRG/QtCaZeN/H.jXheEzenXMdZmHlUMRU.yxIZMUVqpXoa2tgCJi', '(11)99999-0001', '111.111.111-01'),
-('Helena Souza',        'helena@senac.com',       '$2b$10$UVRG/QtCaZeN/H.jXheEzenXMdZmHlUMRU.yxIZMUVqpXoa2tgCJi', '(11)99999-0002', '111.111.111-02'),
+('Ricardo Oliveira',    'ricardo@senac.com',      'PASSWORD_HASH_AQUI', '(11)99999-0001', '111.111.111-01'),
+('Helena Souza',        'helena@senac.com',       'PASSWORD_HASH_AQUI', '(11)99999-0002', '111.111.111-02'),
 -- Alunos
-('Lucas Oliveira',      'lucas@aluno.senac.com',  '$2b$10$UVRG/QtCaZeN/H.jXheEzenXMdZmHlUMRU.yxIZMUVqpXoa2tgCJi', '(11)99999-0003', '222.222.222-01'),
-('Ana Clara Mendes',    'ana@aluno.senac.com',    '$2b$10$UVRG/QtCaZeN/H.jXheEzenXMdZmHlUMRU.yxIZMUVqpXoa2tgCJi', '(11)99999-0004', '222.222.222-02'),
-('Mateus Ferreira',     'mateus@aluno.senac.com', '$2b$10$UVRG/QtCaZeN/H.jXheEzenXMdZmHlUMRU.yxIZMUVqpXoa2tgCJi', '(11)99999-0005', '222.222.222-03'),
-('Julia Santos',        'julia@aluno.senac.com',  '$2b$10$UVRG/QtCaZeN/H.jXheEzenXMdZmHlUMRU.yxIZMUVqpXoa2tgCJi', '(11)99999-0006', '222.222.222-04'),
-('Pedro Alves',         'pedro@aluno.senac.com',  '$2b$10$UVRG/QtCaZeN/H.jXheEzenXMdZmHlUMRU.yxIZMUVqpXoa2tgCJi', '(11)99999-0007', '222.222.222-05');
+('Lucas Oliveira',      'lucas@aluno.senac.com',  'PASSWORD_HASH_AQUI', '(11)99999-0003', '222.222.222-01'),
+('Ana Clara Mendes',    'ana@aluno.senac.com',    'PASSWORD_HASH_AQUI', '(11)99999-0004', '222.222.222-02'),
+('Mateus Ferreira',     'mateus@aluno.senac.com', 'PASSWORD_HASH_AQUI', '(11)99999-0005', '222.222.222-03'),
+('Julia Santos',        'julia@aluno.senac.com',  'PASSWORD_HASH_AQUI', '(11)99999-0006', '222.222.222-04'),
+('Pedro Alves',         'pedro@aluno.senac.com',  'PASSWORD_HASH_AQUI', '(11)99999-0007', '222.222.222-05');
 
 
 INSERT INTO user_roles (user_id, role_id)
